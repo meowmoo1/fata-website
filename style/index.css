@@ -26,6 +26,8 @@ header {
     padding: 30px 10%;
     background-color: black;
     height: 67px;
+    width: 100%;
+    white-space: nowrap;
     justify-content: space-between;
 
 }
@@ -36,11 +38,6 @@ header {
     height: 64.39999999999999px;
 }
 
-.FTC {
-    cursor: pointer;
-    width:  71.19999999999999px;
-    height: 56.0px;
-}
 
 .nav__links {
     list-style: none;
@@ -68,7 +65,70 @@ li::after{
 }
 li:hover{
     color: #ffffff;
+    transform: scale(1.1);
+    transition: 0.3s;
+
 }
 li:hover:after{
     width: 100%;
 }
+
+#hamburger-icon {
+    margin: auto 0;
+    display: none;
+    cursor: pointer;
+
+  }
+  
+  #hamburger-icon div {
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .open .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+  }
+  
+  .open .bar2 {
+    opacity: 0;
+  }
+  
+  .open .bar3 {
+    -webkit-transform: rotate(45deg) translate(-6px, -8px);
+    transform: rotate(45deg) translate(-6px, -8px);
+  }
+  
+  .open .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    height: calc(100vh - 50px);
+    width: 100%;
+    list-style: none
+  }
+  
+  .mobile-menu li {
+    margin-bottom:15px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    header nav {
+      display: none;
+    }
+  
+    #hamburger-icon {
+      display: block;
+    }
+  }

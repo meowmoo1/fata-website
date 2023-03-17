@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@600&display=swap');
+
+* {
+    box-sizing: border-box ;
+    margin: 0;
+    padding: 0;
+
+}
+body {
+    background-color: #24252a;
+}
+
+li, a {
+    position: relative;
+    font-family: "Merriweather Sans", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #edf0f1;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: black;
+    height: 67px;
+    width: 100%;
+    white-space: nowrap;
+    justify-content: space-between;
+
+}
+
+.logo {
+    cursor: pointer;
+    width:  80.4px;
+    height: 64.39999999999999px;
+}
+
+
+.nav__links {
+    list-style: none;
+
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+li::after{
+    content: "";
+    position: absolute;
+    background-color: #6432B7;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+li:hover{
+    color: #ffffff;
+    transform: scale(1.1);
+    transition: 0.3s;
+
+}
+li:hover:after{
+    width: 100%;
+}
+
+#hamburger-icon {
+    margin: auto 0;
+    display: none;
+    cursor: pointer;
+
+}
+  
+#hamburger-icon div {
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+    position: relative;
+    top: -11px;
+}
+  
+.open .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+  
+.open .bar2 {
+    opacity: 0;
+}
+  
+.open .bar3 {
+    -webkit-transform: rotate(45deg) translate(-6px, -8px);
+    transform: rotate(45deg) translate(-6px, -8px);
+}
+  
+open .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+  
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    height: calc(100vh - 50px);
+    width: 100%;
+    list-style: none
+}
+  
+.mobile-menu li {
+    margin-bottom:15px;
+}
+  
+@media only screen and (max-width: 600px) {
+    header nav {
+        display: none;
+    }
+  
+    #hamburger-icon {
+        display: block;
+    }
+    }

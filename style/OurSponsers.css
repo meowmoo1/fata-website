@@ -29,7 +29,10 @@ header {
     width: 100%;
     white-space: nowrap;
     justify-content: space-between;
+}
 
+.header_line {
+  margin-bottom: 15px;
 }
 
 .logo {
@@ -63,12 +66,14 @@ li::after{
     bottom: -10px;
     transition: 0.3s;
 }
+
 li:hover{
     color: #ffffff;
     transform: scale(1.1);
     transition: 0.3s;
 
 }
+
 li:hover:after{
     width: 100%;
 }
@@ -77,137 +82,234 @@ li:hover:after{
     margin: auto 0;
     display: none;
     cursor: pointer;
-
 }
   
 #hamburger-icon div {
-    width: 35px;
-    height: 3px;
-    background-color: white;
-    margin: 6px 0;
-    transition: 0.4s;
-    position: relative;
-    top: -11px;
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+  position: relative;
+  top: -11px;
 }
   
 .open .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
-    transform: rotate(-45deg) translate(-6px, 6px);
+  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+  transform: rotate(-45deg) translate(-6px, 6px);
 }
   
 .open .bar2 {
-    opacity: 0;
+  opacity: 0;
 }
   
 .open .bar3 {
-    -webkit-transform: rotate(45deg) translate(-6px, -8px);
-    transform: rotate(45deg) translate(-6px, -8px);
+  -webkit-transform: rotate(45deg) translate(-6px, -8px);
+  transform: rotate(45deg) translate(-6px, -8px);
 }
   
-open .mobile-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+.open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
   
 .mobile-menu {
-    display: none;
-    position: absolute;
-    top: 100px;
-    left: 0;
-    height: calc(100vh - 50px);
-    width: 100%;
-    list-style: none
+  display: none;
+  position: absolute;
+  top: 67px;
+  left: 0;
+  height: 213px;
+  width: 100%;
+  list-style: none
 }
   
 .mobile-menu li {
-    margin-bottom:15px;
+  margin-bottom:15px;
+  top: 45px;
 }
   
+.body_div {
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.info {
+  margin-left: 35px;
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: 600;
+  font-size: 35px;
+  color: 16FF00;
+
+}
+
+.logo2 {
+  max-width: 201px;
+  max-height: 161px;
+  margin: auto;
+  display: block;
+}
+
+
+.title {
+  font-family: Avenger,Arial,Helvetica,sans-serif;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 70px;
+  color: #ff39ee;
+  margin-top: 30px;
+  font-weight: bold
+}
+
+.first_part_of_the_page {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.second_part_of_the_page {
+  display: flex;
+}
+
+.alternating_images_container {
+  max-width: 800.0px;
+  max-height: 533.5px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.alternating_images_wrapper {
+  width: 100%;
+  display: flex;
+  animation: slide 16s infinite;
+}
+
+.alternating_images {
+  width: 100%;
+  height: 100%;
+}
+
+.second_hr {
+  margin-top: 50px;
+}
+
+.third_hr {
+  margin-top: 50px;
+}
+
+@keyframes slide{
+  0%{
+      transform: translateX(0);
+  }
+  25%{
+      transform: translateX(0);
+  }
+  30%{
+      transform: translateX(-100%);
+  }
+  50%{
+      transform: translateX(-100%);
+  }
+  55%{
+      transform: translateX(-200%);
+  }
+  75%{
+      transform: translateX(-200%);
+  }
+  80%{
+      transform: translateX(-300%);
+  }
+  100%{
+      transform: translateX(0-300%);
+  }
+}
+
 @media only screen and (max-width: 600px) {
-    header nav {
-        display: none;
-    }
+  header nav {
+    display: none;
+  }
   
-    #hamburger-icon {
-        display: block;
-    }
-}
-.home-robots {
-    text-align: center;
-    margin-bottom: 2.5em;
-    width: 100%;
-    height: 100%;
-    color: #fff;
-}
-.lines-title {
-    letter-spacing: 4px;
-    font-family: Avenger,Arial,Helvetica,sans-serif;
-    flex-direction: row;
-    width: 100%;
-    margin: 0 auto 2em;
-    color: #fff;
-    text-align: center;
-    margin-top: 3%;
-}
-
-span h2 {
+  #hamburger-icon {
     display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    text-align: center;
+  }
+  li, a {
+    color: black;
+    font-size: 30px;
+  }
 }
 
-.RamatNegevLogo{
-    margin-top: 7px;
-    margin-bottom: 7px;
-    height: 118px;
-    width: 236px;
+@media (max-width: 600px) {
+  .title {
+    font-size: 40px;
+    margin-top: 0px;
+  }
+  .first_part_of_the_page {
+    display: block;
+  }
+  .second_part_of_the_page{
+    display: block;
+  }
+  .mobile-menu {
+    background-color: white;
+    opacity: 85%;
+  }
+  .info {
+    margin-top: 30px;
+    font-size: 25px;
+  }
 }
-.Raval{
-    margin-top: 7px;
-    margin-bottom: 7px;
-    height: 118px;
-    width: 236px;
+
+@keyframes spin {
+  from { transform: rotate(0deg);}
+  to { transform:  rotate(360deg);}
 }
-.Sagiv{
-    margin-top: 7px;
-    margin-bottom: 7px;
-    height: 118px;
-    width: 236px;
+.logo {
+  animation: spin 10s infinite;
 }
-.ICA{
-    margin-top: 7px;
-    margin-bottom: 7px;
-    height: 118px;
-    width: 236px;
+.logo2 {
+  animation: spin 10s infinite;
 }
-.myarchive{
-    margin-top: 7px;
-    margin-bottom: 7px;
-    height: 118px;
-    width: 236px;
+.alternating_images {
+  animation: spin 10s infinite;
 }
-.negevFoundation{
-    margin-top: 7px;
-    margin-bottom: 7px;
-    height: 118px;
-    width: 236px;
+.body_div {
+  animation: spin 10s infinite;
 }
-.TaliLogo{
-    margin-top: 7px;
-    margin-bottom: 7px;
-    height: 118px;
-    width: 236px;
+.info {
+  animation: spin 10s infinite;
 }
-.Spider3D{
-    margin-top: 7px;
-    margin-bottom: 7px;
-    height: 118px;
-    width: 236px;
+.body {
+  animation: spin 10s infinite;
 }
+.title {
+  animation: spin 10s infinite;
+}
+.first_part_of_the_page {
+  animation: spin 10s infinite;
+}
+.second_part_of_the_page {
+  animation: spin 10s infinite;
+}
+.second_hr {
+  animation: spin 10s infinite;
+}
+.header_line {
+  animation: spin 10s infinite;
+}
+.third_hr {
+  animation: spin 10s infinite;
+}
+.bar1 {
+  animation: spin 10s infinite;
+}
+.li {
+  animation: spin 10s infinite;
+}
+.header {
+  animation: spin 10s infinite;
+}
+
+

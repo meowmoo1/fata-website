@@ -9,7 +9,50 @@
 body {
     background-color: #24252a;
 }
+footer{
+   background-color: #111;
+}
+.footerContainer{
+  width: 100%;
+  padding: 70px 30px 0px;
+  margin-top: 100px;
+}
+.socialIcons{
+  display: flex;
+  justify-content: center;
+}
+.tal  {
+  font-size: 15px;
+}
+.socialIcons a{
+  text-decoration: none;
+  padding: 10px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 50%;
+}
+.socialIcons a i{
+  font-size: 2em;
+  color: black;
+  opacity: 0.9;
 
+}
+.footerBottom{
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+}
+.footerBottom p{
+  color: white;
+
+}
+.designer{
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 0px 5px;
+}
 li, a {
     position: relative;
     font-family: "Merriweather Sans", sans-serif;
@@ -120,7 +163,7 @@ li:hover:after{
   position: absolute;
   top: 67px;
   left: 0;
-  height: 213px;
+  height: 225px;
   width: 100%;
   list-style: none
 }
@@ -227,7 +270,7 @@ li:hover:after{
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   header nav {
     display: none;
   }
@@ -238,6 +281,10 @@ li:hover:after{
   li, a {
     color: black;
     font-size: 30px;
+  }
+  .footerNav ul{
+    flex-direction: column;
+
   }
 }
 

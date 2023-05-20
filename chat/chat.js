@@ -1,10 +1,17 @@
+
 // Get elements
 const chatbox = document.getElementById('chatbox');
 const userInput = document.getElementById('userInput');
 const sendButton = document.getElementById('sendButton');
 
 // Initialize the current user
-let currentUser = 'User 1 : ';
+let currentUser = 'User 1';
+
+// Retrieve chat messages from localStorage
+const storedMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+storedMessages.forEach((message) => {
+  displayMessage(message.userName, message.message, 'user-message');
+});
 
 // Add event listener to send button
 sendButton.addEventListener('click', function() {
@@ -14,7 +21,12 @@ sendButton.addEventListener('click', function() {
     userInput.value = '';
 
     // Toggle the current user
-    currentUser = currentUser === 'User 1 : ' ? 'User 2 : ' : 'User 1 : ';
+    currentUser = currentUser === 'User 1' ? 'User 2' : 'User 1';
+
+    // Store chat messages in localStorage
+    const chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+    chatMessages.push({ userName: currentUser, message: message });
+    localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
   }
 });
 

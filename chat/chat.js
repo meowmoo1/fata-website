@@ -1,50 +1,43 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var messageInput = document.getElementById('message-input');
+    var sendButton = document.getElementById('send-button');
+    var chatMessages = document.getElementById('chat-messages');
+  
+    var socket = io.connect('http://localhost:5500');
 
-// Get elements
-const chatbox = document.getElementById('chatbox');
-const userInput = document.getElementById('userInput');
-const sendButton = document.getElementById('sendButton');
-
-// Initialize the current user
-let currentUser = 'User 1';
-
-// Retrieve chat messages from localStorage
-const storedMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
-storedMessages.forEach((message) => {
-  displayMessage(message.userName, message.message, 'user-message');
-});
-
-// Add event listener to send button
-sendButton.addEventListener('click', function() {
-  const message = userInput.value;
-  if (message.trim() !== '') {
-    displayMessage(currentUser, message, 'user-message');
-    userInput.value = '';
-
-    // Toggle the current user
-    currentUser = currentUser === 'User 1' ? 'User 2' : 'User 1';
-
-    // Store chat messages in localStorage
-    const chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
-    chatMessages.push({ userName: currentUser, message: message });
-    localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
-  }
-});
-
-// Function to display message in the chatbox
-function displayMessage(userName, message, className) {
-  const chatMessage = document.createElement('div');
-  chatMessage.classList.add('chat-message');
-  const userMessage = document.createElement('div');
-  userMessage.classList.add('user-message', className);
-  const userNameElement = document.createElement('span');
-  userNameElement.classList.add('user-name');
-  userNameElement.textContent = userName;
-  const messageElement = document.createElement('p');
-  messageElement.classList.add('message');
-  messageElement.textContent = message;
-  userMessage.appendChild(userNameElement);
-  userMessage.appendChild(messageElement);
-  chatMessage.appendChild(userMessage);
-  chatbox.appendChild(chatMessage);
-  chatbox.scrollTop = chatbox.scrollHeight;
-}
+  
+    // Event listener for 'messageReceived' event
+    socket.on('messageReceived', function(message) {
+      displayMessage(message);
+    });
+  
+    // Event listener for send button click
+    sendButton.addEventListener('click', function() {
+      var messageContent = messageInput.value.trim();
+      if (messageContent !== '') {
+        var message = {
+          sender: 'User1',
+          recipient: 'User2',
+          content: messageContent
+        };
+        socket.emit('chatMessage', message);
+        displayMessage(message);
+        messageInput.value = '';
+      }
+    });
+  
+    // Function to display a message in the chat window
+    function displayMessage(message) {
+      var messageElement = document.createElement('div');
+      messageElement.classList.add('message');
+      if (message.sender === 'User1') {
+        messageElement.classList.add('self');
+      } else {
+        messageElement.classList.add('other');
+      }
+      messageElement.textContent = message.sender + ': ' + message.content;
+      chatMessages.appendChild(messageElement);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  });
+  

@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+  <title>Chat App</title>
   <link rel="stylesheet" type="text/css" href="chat.css">
 </head>
-
 <body>
-  <h1>Chat</h1>
-
-  <div id="chatbox"></div>
-
-  <div class="input-container">
-    <input type="text" id="userInput" placeholder="Type your message..." />
-    <button id="sendButton">Send</button>
+  <div id="chat">
+    <div id="chat-messages"></div>
+    <input type="text" id="message-input" placeholder="Type your message...">
+    <button id="send-button">Send</button>
   </div>
 
+  <script src="/socket.io/socket.io.js"></script>
   <script src="chat.js"></script>
 </body>
-
 </html>
